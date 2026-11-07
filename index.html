@@ -1,0 +1,374 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mission U14 Stats 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ice:#EDF2F6; --sheet:#FFFFFF; --ink:#0F2340; --muted:#5A6B80; --line:#D3DDE7;
+  --red:#B5121B; --blue:#24558F; --plus:#17744F; --minus:#B5121B; --hl:#E3ECF5;
+  --cond:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ice:#0E1A2B; --sheet:#152439; --ink:#E4EBF3; --muted:#93A4B9; --line:#26384F;
+  --red:#E0474F; --blue:#7FAEE3; --plus:#4CC28F; --minus:#F0646B; --hl:#1C3150;}}
+:root[data-theme="dark"]{--ice:#0E1A2B; --sheet:#152439; --ink:#E4EBF3; --muted:#93A4B9; --line:#26384F;
+  --red:#E0474F; --blue:#7FAEE3; --plus:#4CC28F; --minus:#F0646B; --hl:#1C3150;}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+.box b span{font-size:inherit;color:inherit}
+.box b span.pos{color:var(--plus)}.box b span.neg{color:var(--minus)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--ice);color:var(--ink);font:15px/1.45 var(--body);-webkit-text-size-adjust:100%}
+.wrapx{max-width:1040px;margin:0 auto;padding:0 14px 40px}
+header.board{background:var(--ink);color:var(--ice);border-bottom:4px solid var(--red)}
+header.board .in{max-width:1040px;margin:0 auto;padding:16px 14px 0;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 22px}
+.team h1{font:700 30px/1 var(--cond);margin:0;letter-spacing:.2px}
+.team p{margin:4px 0 0;font-size:13px;opacity:.75}
+.score{display:flex;gap:18px;margin-left:auto}
+.score div{text-align:center}
+.score b{display:block;font:700 30px/1 var(--cond);font-variant-numeric:tabular-nums}
+.score span{font-size:12px;opacity:.7}
+nav{width:100%;display:flex;gap:2px;margin-top:10px;overflow-x:auto}
+nav a{font:600 17px/1 var(--cond);color:var(--ice);opacity:.7;text-decoration:none;padding:10px 14px 11px;border-radius:6px 6px 0 0;white-space:nowrap}
+nav a.on{opacity:1;background:var(--ice);color:var(--ink)}
+nav a:focus-visible,button:focus-visible,th:focus-visible,select:focus-visible,input:focus-visible,.link:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.bar{position:sticky;top:0;z-index:5;background:var(--ice);padding:12px 0 10px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;background:var(--sheet);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{font:600 14px var(--body);border:0;background:none;color:var(--ink);padding:7px 11px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--ink);color:var(--ice)}
+.bar label{font-size:13px;color:var(--muted)}
+h2{font:700 22px/1.1 var(--cond);margin:22px 0 10px}
+h3{font:600 18px/1.1 var(--cond);margin:18px 0 8px}
+.note{font-size:13px;color:var(--muted);max-width:70ch}
+.tw{overflow-x:auto;background:var(--sheet);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:8px 9px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+th{font:600 14px var(--cond);color:var(--muted);background:var(--sheet);position:sticky;top:0}
+th.s{cursor:pointer;user-select:none}
+th.s.on{color:var(--ink)}
+th.s.on::after{content:" ▾";font-size:11px}
+th.s.on.asc::after{content:" ▴"}
+td.l,th.l{text-align:left}
+td.num{font:700 16px var(--cond);color:var(--red);width:34px}
+td.pts{font-weight:600}
+.stick{position:sticky;left:0;background:var(--sheet);z-index:1}
+th.stick{z-index:2}
+tr.click{cursor:pointer}
+tr.click:hover td{background:var(--hl)}
+.pos{color:var(--plus);font-weight:600}.neg{color:var(--minus);font-weight:600}
+.link{color:var(--blue);text-decoration:none;cursor:pointer;background:none;border:0;font:inherit;padding:0}
+.chip{display:inline-block;font:600 12px var(--body);padding:2px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.chip.Tougher{color:var(--red);border-color:var(--red)}
+.chip.Even{color:var(--blue);border-color:var(--blue)}
+.res{font:700 15px var(--cond)}
+.res.W{color:var(--plus)}.res.L,.res.OTL{color:var(--minus)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.box{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.box b{display:block;font:700 26px/1 var(--cond);font-variant-numeric:tabular-nums}
+.box span{font-size:13px;color:var(--muted)}
+.lead{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.lead ol{margin:0;padding:0;list-style:none}
+.lead li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--line)}
+.lead li:last-child{border-bottom:0}
+.lead li b{font:700 17px var(--cond)}
+.phead{display:flex;align-items:center;gap:16px;margin:18px 0 6px}
+.jersey{font:800 72px/.85 var(--cond);color:var(--red);min-width:84px;text-align:center;border-right:3px solid var(--line);padding-right:14px}
+.phead h2{margin:0;font-size:30px}
+.phead p{margin:4px 0 0;color:var(--muted)}
+.back{display:inline-block;margin-top:14px}
+.evt{display:grid;grid-template-columns:56px 1fr auto;gap:4px 10px;padding:9px 12px;border-bottom:1px solid var(--line);align-items:baseline}
+.evt:last-child{border-bottom:0}
+.evt .sc{font:700 17px var(--cond);font-variant-numeric:tabular-nums}
+.evt.O .sc{color:var(--minus)}
+.evt small{color:var(--muted);grid-column:2/4}
+.str{font:600 12px var(--body);color:var(--muted)}
+.me td{background:var(--hl)}
+input.rt{width:74px;font:600 15px var(--body);padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--ice);color:var(--ink);text-align:right}
+button.plain{font:600 14px var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);padding:7px 12px;border-radius:8px;cursor:pointer}
+.pickbtn{margin-left:auto}
+.pickbtn.on{background:var(--ink);color:var(--ice);border-color:var(--ink)}
+.pick{background:var(--sheet);border:1px solid var(--line);border-radius:10px;margin:12px 0 4px;padding:12px}
+.pick .qk{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pick .qk button{font:600 13px var(--body);border:1px solid var(--line);background:var(--ice);color:var(--ink);padding:6px 10px;border-radius:20px;cursor:pointer}
+.pick ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px 14px}
+.pick label{display:flex;align-items:center;gap:8px;padding:6px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:14px}
+.pick input{width:18px;height:18px;accent-color:var(--blue);flex:none}
+.pick .gd{color:var(--muted);font-size:12px;min-width:62px}
+.pick .op{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pick .done{margin-top:10px}
+a.dl{color:var(--blue);text-decoration:underline dotted;text-underline-offset:3px}
+a.dbox{display:block;text-decoration:none;color:inherit;cursor:pointer}
+a.dbox:hover{border-color:var(--blue)}
+a.dbox > span::after{content:" ›";color:var(--blue)}
+a.dl2{text-decoration:none;color:inherit}
+a.dl2:hover{background:var(--hl)}
+.evt small b{color:var(--ink)}
+@media (max-width:560px){.score{margin-left:0}.team h1{font-size:26px}.jersey{font-size:56px;min-width:64px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="board"><div class="in">
+  <div class="team"><h1>Chicago Mission U14</h1><p>2012 Bantam Major, 2026–27 season</p></div>
+  <div class="score" id="score"></div>
+  <nav id="nav"><a href="#team" data-v="team">Team</a><a href="#players" data-v="players">Players</a><a href="#games" data-v="games">Games</a><a href="#opponents" data-v="opponents">Opponents</a></nav>
+</div></header>
+<div class="wrapx">
+<div class="bar" id="bar">
+  <label>Opponent strength</label>
+  <div class="seg" id="tierSeg"></div>
+  <div class="seg" id="posSeg" hidden></div>
+  <button class="plain pickbtn" id="pickBtn" aria-expanded="false" aria-controls="pick"></button>
+</div>
+<div class="pick" id="pick" hidden></div>
+<main id="app"></main>
+</div>
+<script>
+const ROSTER=[[4,"Clayton Evert","F"],[7,"Sean Sullivan","F"],[9,"Grant Tucker","D"],[10,"Chase Hutter","F"],[14,"Sam Douglas","F/D"],[16,"Sebastian Slavik","F"],[19,"Simon Sorensen","F"],[22,"Matthew Cudio","F"],[23,"John Bryant","D"],[42,"Allan Smutek","D"],[61,"Anthony Bakiej","D"],[68,"Sasha Gresl","F"],[72,"Brady Chobar","F"],[77,"Chase Mitchell","F/D"],[86,"AJ Eggers","F"],[89,"Cash Cieslak","F"],[92,"Michael Mufarreh","D"],[96,"Kaleb Johnson","F"]];
+const MISSION_RATING=96.77;
+const OPP={"OHA Colorado":91.96,"LA Jr. Kings":95.49,"St. Louis Blues":94.01,"Nashville Jr. Predators":96.63,"Shattuck-St. Mary's":99.56,"Chicago Fury":91.46,"Team Illinois":97.08,"Chicago Phantoms":87.06,"Chicago Reapers":95.31,"Windy City Storm":92.95,"Mount St. Charles":96.15,"NJ Rockets":95.40,"Bishop Kearney Selects":96.38,"Little Caesars":97.03,"Woodbridge Wolfpack":97.12,"Mid-Fairfield":99.99,"Pittsburgh Penguins Elite":96.36};
+// events: [side, str, G, A1, A2, ICE]
+const GAMES=[
+{n:1,date:"2026-09-04",opp:"OHA Colorado",gf:7,ga:2,res:"W",ev:[
+["M","PP",23,61,96,null],["M","ES",92,86,0,[92,86,89,22,9]],["O","PP",0,0,0,null],["M","ES",16,4,96,[16,4,96,61,23]],["O","ES",0,0,0,[72,22,86,42,9]],["M","ES",68,7,0,[68,7,72,92,14]],["M","ES",92,14,7,[92,14,7,77,68]],["M","ES",96,4,16,[96,4,16,23,61]],["M","ES",89,86,9,[89,86,9,42,22]]]},
+{n:2,date:"2026-09-05",opp:"LA Jr. Kings",gf:5,ga:4,res:"W",ev:[
+["M","ES",77,68,0,[77,68,7,42,9]],["M","PP",92,22,89,null],["O","ES",0,0,0,[22,86,89,23,61]],["O","ES",0,0,0,[92,14,7,68,77]],["M","PP",22,92,0,null],["M","ES",89,92,0,[89,92,14,16,72]],["M","ES",89,22,86,[89,22,86,23,61]],["O","PP",0,0,0,null],["O","ES",0,0,0,[72,10,19,61,9]]]},
+{n:3,date:"2026-09-06",opp:"St. Louis Blues",gf:5,ga:6,res:"OTL",ev:[
+["O","ES",0,0,0,[68,96,7,77,14]],["M","ES",89,42,0,[89,42,22,86,9]],["O","ES",0,0,0,[7,68,19,23,61]],["M","PP",22,14,89,null],["O","ES",0,0,0,[68,77,7,23,61]],["M","ES",89,9,0,[89,9,22,42,86]],["M","ES",92,7,77,[92,7,77,14,68]],["M","ES",89,86,22,[89,86,22,92,14]],["O","PP",0,0,0,null],["O","ES",0,0,0,[4,96,16,42,9]],["O","OT",0,0,0,[92,89,22]]]},
+{n:4,date:"2026-09-07",opp:"Nashville Jr. Predators",gf:6,ga:2,res:"W",ev:[
+["M","ES",92,89,0,[92,89,61,22,86]],["M","SH",77,68,0,[77,68,92,14]],["M","ES",22,89,14,[22,89,14,9,86]],["M","ES",22,89,14,[22,89,92,61,77]],["M","PP",7,10,14,null],["O","ES",0,0,0,[89,86,22,61,92]],["M","PP",10,9,19,null],["O","ES",0,0,0,[72,68,77,9,23]]]},
+{n:5,date:"2026-09-19",opp:"Shattuck-St. Mary's",gf:1,ga:6,res:"L",ev:[
+["O","PP",0,0,0,null],["O","ES",0,0,0,[89,22,86,42,9]],["O","ES",0,0,0,[23,61,22,86,89]],["O","ES",0,0,0,[4,96,14,92,16]],["O","ES",0,0,0,[92,14,4,96,16]],["M","ES",92,4,96,[92,4,96,14,16]],["O","ES",0,0,0,[22,86,89,14,42]]]},
+{n:6,date:"2026-09-24",opp:"Chicago Fury",gf:7,ga:1,res:"W",ev:[
+["M","ES",68,23,0,[68,23,92,86,4]],["M","ES",22,72,23,[22,9,92,72,19]],["M","ES",86,68,9,[86,68,9,77,4]],["M","ES",16,92,19,[16,92,19,23,7]],["M","ES",14,89,10,[14,89,10,61,42]],["O","ES",0,0,0,[72,22,92,96,23]],["M","ES",4,23,0,[4,23,86,92,68]],["M","ES",89,23,10,[89,23,10,42,14]]]},
+{n:7,date:"2026-09-25",opp:"Team Illinois",gf:2,ga:1,res:"W",ev:[
+["O","ES",0,0,0,[72,68,96,77,9]],["M","ES",9,10,0,[9,10,77,96,4]],["M","ES",14,92,0,[14,92,42,89,22]]]},
+{n:8,date:"2026-09-26",opp:"Chicago Phantoms",gf:8,ga:1,res:"W",ev:[
+["M","ES",89,42,0,[89,42,4,9,10]],["M","ES",96,22,72,[96,22,72,92,23]],["O","ES",0,0,0,[9,42,89,10,14]],["M","ES",89,22,92,[89,22,92,23,72]],["M","ES",10,14,42,[10,14,42,9,86]],["M","ES",72,22,0,[72,22,96,61,77]],["M","ES",22,0,0,[22,77,72,96,61]],["M","ES",14,4,89,[14,4,89,23,92]],["M","ES",89,4,14,[89,4,14,92,23]]]},
+{n:9,date:"2026-09-26",opp:"Chicago Reapers",gf:4,ga:5,res:"L",dnp:[7],ev:[
+["O","ES",0,0,0,[92,23,89,16,10]],["O","PP",0,0,0,null],["O","ES",0,0,0,[92,89,23,10,68]],["M","ES",89,14,92,[89,14,92,23,4]],["M","ES",19,68,10,[19,68,10,42,9]],["M","ES",22,86,72,[22,86,72,61,77]],["O","ES",0,0,0,[72,22,19,77,61]],["M","ES",19,23,42,[19,23,42,16,96]],["O","PP",0,0,0,null]]},
+{n:10,date:"2026-09-27",opp:"Windy City Storm",gf:6,ga:0,res:"W",ev:[
+["M","ES",92,22,0,[92,22,89,9,96]],["M","PP",77,22,0,null],["M","PP",19,7,0,null],["M","ES",96,61,42,[96,61,42,4,10]],["M","ES",92,89,22,[92,89,22,9,14]],["M","ES",72,96,0,[72,96,19,42,23]]]},
+{n:11,date:"2026-10-02",opp:"Mount St. Charles",gf:3,ga:4,res:"OTL",so:true,ev:[
+["O","ES",0,0,0,[61,42,16,7,19]],["M","ES",96,16,22,[96,16,22,77,61]],["M","ES",22,14,89,[22,14,89,92,9]],["O","ES",0,0,0,[72,61,42,10,96]],["O","PP",0,0,0,null],["M","ES",42,92,89,[42,92,89,22,14,96],"6-on-5, goalie pulled"]]},
+{n:12,date:"2026-10-03",opp:"NJ Rockets",gf:5,ga:1,res:"W",ev:[
+["O","ES",0,0,0,[61,92,22,16,89]],["M","ES",68,89,77,[68,89,77,23,7]],["M","ES",89,92,22,[89,92,22,9,14]],["M","PP",89,14,92,null],["M","ES",16,0,0,[16,68,19,61,42]],["M","ES",4,10,92,[4,10,92,9,86]]]},
+{n:13,date:"2026-10-04",opp:"Bishop Kearney Selects",gf:7,ga:4,res:"W",ev:[
+["M","ES",92,68,19,[92,72,96,16,23]],["M","ES",7,96,0,[7,96,16,42,61]],["O","ES",0,0,0,[89,22,14,92,9]],["M","ES",19,72,0,[19,72,68,42,61]],["O","ES",0,0,0,[92,22,89,9,14]],["M","ES",92,0,0,[92,96,7,16,9]],["M","PP",19,96,23,null],["O","ES",0,0,0,[89,22,23,77,14]],["O","ES",0,0,0,[42,61,7,96,16]],["M","ES",16,7,42,[96,7,42,16,61]],["M","SH",96,0,0,[96,42,92,7]]]},
+{n:14,date:"2026-10-10",opp:"Little Caesars",gf:3,ga:6,res:"L",dnp:[19],ev:[
+["O","ES",0,0,0,[89,22,14,9,92]],["O","ES",0,0,0,[86,4,10,61,23]],["O","ES",0,0,0,[72,68,77,89,9]],["M","PP",89,14,22,null],["M","PP",4,92,10,null],["M","SH",92,14,0,[92,14,4,9]],["O","ES",0,0,0,[96,4,10,61,42]],["O","ES",0,0,0,[89,92,9,4,10]],["O","ES",0,0,0,[61,42,22,89,14]]]},
+{n:15,date:"2026-10-10",opp:"Little Caesars",gf:3,ga:2,res:"W",dnp:[19],ev:[
+["O","ES",0,0,0,[16,7,23,77,86]],["M","ES",14,22,0,[14,22,77,23,96]],["M","ES",92,89,0,[92,89,9,10,14]],["M","ES",68,4,23,[68,4,23,96,77]],["O","ES",0,0,0,[96,4,68,61,42]]]},
+{n:16,date:"2026-10-11",opp:"Little Caesars",gf:3,ga:2,res:"W",ot:true,dnp:[19,7],ev:[
+["M","ES",89,42,0,[89,42,61,22,16]],["M","ES",89,42,0,[89,42,61,68,22]],["O","ES",0,0,0,[72,92,10,9,96]],["O","ES",0,0,0,[86,4,96,61,42]],["M","OT",92,22,0,[92,22,89]]]},
+{n:17,date:"2026-10-16",opp:"Woodbridge Wolfpack",gf:2,ga:7,res:"L",dnp:[19],ev:[
+["O","ES",0,0,0,[89,42,9,96,16]],["O","PP",0,0,0,null],["O","PP",0,0,0,null],["O","ES",0,0,0,[7,4,96,42,9]],["M","ES",10,89,92,[10,89,92,14,77]],["O","ES",0,0,0,[10,4,9,42,86]],["M","PP",22,16,0,null],["O","PP",0,0,0,null],["O","ES",0,0,0,[22,89,92,42,14]]]},
+{n:18,date:"2026-10-16",opp:"Mid-Fairfield",gf:0,ga:4,res:"L",dnp:[19],ev:[
+["O","ES",0,0,0,[4,10,92,9,86]],["O","ES",0,0,0,[10,96,68,92,9]],["O","ES",0,0,0,[22,92,42,96,72]],["O","ES",0,0,0,[7,96,22,92,9]]]},
+{n:19,date:"2026-10-17",opp:"Pittsburgh Penguins Elite",gf:3,ga:4,res:"OTL",ev:[
+["O","ES",0,0,0,[72,61,7,42,86]],["M","PP",92,89,0,null],["O","ES",0,0,0,[92,72,23,86,7]],["M","PP",92,22,96,null],["O","ES",0,0,0,[92,22,68,19,23]],["M","ES",22,92,0,[22,92,89,14,16,42],"6-on-5, goalie pulled"],["O","PP",0,0,0,null,"Overtime"]]},
+{n:20,date:"2026-10-18",opp:"Chicago Reapers",gf:5,ga:4,res:"W",ot:true,dnp:[72,9,4,86],ev:[
+["M","ES",10,22,0,[10,22,19,61,92]],["O","PP",0,0,0,null],["O","ES",0,0,0,[92,42,16,14,89]],["O","ES",0,0,0,[42,77,96,68,7]],["M","PP",14,89,92,null],["M","ES",89,0,0,[89,61,92,68,7]],["M","ES",22,19,92,[22,19,92,10,23]],["O","PP",0,0,0,null],["M","OT",89,22,0,[89,22,92]]]},
+{n:21,date:"2026-10-23",opp:"Shattuck-St. Mary's",gf:8,ga:3,res:"W",dnp:[9,68,7],ev:[
+["M","ES",89,14,16,[89,14,16,92,61]],["O","ES",0,0,0,[92,42,22,86,19]],["M","ES",77,22,19,[77,22,19,23,10]],["M","ES",4,86,96,[4,86,96,92,77]],["M","ES",4,10,42,[4,10,42,77,19]],["M","ES",72,96,86,[72,96,86,42,92]],["O","PP",0,0,0,null],["O","ES",0,0,0,[14,16,77,89,92]],["M","ES",10,42,0,[10,42,92,19,4]],["M","ES",92,0,0,[92,22,86,96,77]],["M","ES",4,0,0,[4,77,42,19,22]]]},
+{n:22,date:"2026-10-24",opp:"Shattuck-St. Mary's",gf:2,ga:7,res:"L",dnp:[9,68,7],ev:[
+["O","ES",0,0,0,[4,42,10,77,96]],["O","ES",0,0,0,[14,16,89,23,77]],["O","ES",0,0,0,[89,86,16,61,42]],["M","ES",22,89,16,[22,89,16,42,77]],["O","ES",0,0,0,[22,89,14,23,42]],["M","ES",89,42,0,[89,42,10,23,22]],["O","ES",0,0,0,[22,89,77,86,61]],["O","ES",0,0,0,[89,22,92,23,10]],["O","ES",0,0,0,[23,72,77,96,4]]]}
+];
+function tierOf(r,mr){const d=r-mr;return d>=0?"Tougher":d>=-2?"Even":"Weaker"}
+function compute(games){
+  const P={};ROSTER.forEach(([n,name,pos])=>P[n]={n,name,pos,gp:0,g:0,a:0,a1:0,a2:0,pm:0,ppg:0,ppa:0,shg:0,sha:0,gwg:0,esgf:0,esga:0,pl:0,mi:0,log:[]});
+  for(const gm of games){
+    const line={};ROSTER.forEach(([n])=>{if(!(gm.dnp||[]).includes(n)){P[n].gp++;line[n]={g:0,a:0,pm:0,pp:0}}});
+    let mg=0;
+    for(const [side,str,g,a1,a2,ice] of gm.ev){
+      if(side==="M"){mg++;
+        const gw=gm.res==="W"&&mg===gm.ga+1;
+        if(g){P[g].g++;line[g].g++;if(str==="PP"){P[g].ppg++;line[g].pp++}if(str==="SH")P[g].shg++;if(gw)P[g].gwg++}
+        [[a1,"a1"],[a2,"a2"]].forEach(([a,k])=>{if(a){P[a].a++;P[a][k]++;line[a].a++;if(str==="PP"){P[a].ppa++;line[a].pp++}if(str==="SH")P[a].sha++}});
+        if(ice&&str!=="PP")ice.forEach(n=>{P[n].pm++;P[n].pl++;line[n].pm++;if(str==="ES")P[n].esgf++});
+      }else if(ice&&str!=="PP")ice.forEach(n=>{P[n].pm--;P[n].mi++;line[n].pm--;P[n].esga++});
+    }
+    for(const n in line)P[n].log.push({n:gm.n,...line[n]});
+  }
+  return P;
+}
+const TIERS=["All","Tougher","Even","Weaker"];
+const TIER_NOTE={Tougher:"rated at or above Mission",Even:"within 2 points below Mission",Weaker:"more than 2 points below Mission"};
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let ratings=Object.assign({},OPP,load("mission.ratings",{}));
+let mRating=load("mission.mrating",MISSION_RATING);
+let tier="All",posF="All",sortK="p",sortAsc=false,pickOpen=false;
+let excl=new Set(load("mission.excl",[]));
+function saveExcl(){save("mission.excl",[...excl])}
+function selGames(){return GAMES.filter(g=>!excl.has(g.n))}
+const NAME=Object.fromEntries(ROSTER.map(r=>[r[0],r[1]]));
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const pm=v=>`<span class="${v>0?"pos":v<0?"neg":""}">${v>0?"+":""}${v}</span>`;
+const f2=v=>v.toFixed(2);
+const tierG=g=>tierOf(ratings[g.opp],mRating);
+const fmtDate=d=>{const [y,m,dd]=d.split("-");return ["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m]+" "+(+dd)};
+function gamesIn(t){const b=selGames();return t==="All"?b:b.filter(g=>tierG(g)===t)}
+function rec(gs){let w=0,l=0,o=0;gs.forEach(g=>g.res==="W"?w++:g.res==="L"?l++:o++);return `${w}–${l}–${o}`}
+function teamLine(gs){const r={gf:0,ga:0,ppf:0,ppa:0,shf:0,esf:0,esa:0};gs.forEach(g=>{r.gf+=g.gf;r.ga+=g.ga;g.ev.forEach(e=>{if(e[0]==="M"){if(e[1]==="PP")r.ppf++;else if(e[1]==="SH")r.shf++;else r.esf++}else{if(e[1]==="PP")r.ppa++;else r.esa++}})});return r}
+function row(p){const pts=p.g+p.a;return {...p,p:pts,ppg:p.ppg,ppp:p.ppg+p.ppa,shp:p.shg+p.sha,pgp:p.gp?pts/p.gp:0}}
+const COLS=[["gp","GP"],["g","G"],["a","A"],["p","P"],["pgp","P/GP"],["pm","+/-"],["pl","Plus"],["mi","Minus"],["ppp","PPP"],["shp","SHP"],["gwg","GWG"],["a1","A1"],["a2","A2"]];
+
+function setBar(v){
+  document.getElementById("tierSeg").innerHTML=TIERS.map(t=>`<button class="${t===tier?"on":""}" data-tier="${t}">${t}</button>`).join("");
+  const ps=document.getElementById("posSeg");ps.hidden=v!=="players";
+  ps.innerHTML=["All","F","D"].map(t=>`<button class="${t===posF?"on":""}" data-pos="${t}">${t==="All"?"All skaters":t==="F"?"Forwards":"Defense"}</button>`).join("");
+  document.getElementById("bar").hidden=(v==="game");
+  const n=selGames().length,pb=document.getElementById("pickBtn");
+  pb.textContent=n===GAMES.length?`Games: all ${n}`:`Games: ${n} of ${GAMES.length}`;
+  pb.classList.toggle("on",n!==GAMES.length);pb.setAttribute("aria-expanded",pickOpen);
+  const pk=document.getElementById("pick");pk.hidden=!pickOpen||v==="game";
+  if(!pk.hidden)pk.innerHTML=pickHTML();
+}
+function pickHTML(){
+  let h=`<div class="qk"><button data-q="all">All games</button><button data-q="none">Clear</button><button data-q="l5">Last 5</button><button data-q="l10">Last 10</button><button data-q="Tougher">Tougher opponents</button><button data-q="Even">Even</button><button data-q="Weaker">Weaker</button></div><ul>`;
+  [...GAMES].reverse().forEach(g=>{h+=`<li><label><input type="checkbox" data-g="${g.n}" ${excl.has(g.n)?"":"checked"}><span class="gd">${g.n}. ${fmtDate(g.date)}</span><span class="op">${esc(g.opp)}</span><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res} ${g.gf}–${g.ga}</span></label></li>`});
+  return h+`</ul><p class="done"><button class="plain" data-q="close">Done</button></p>`;
+}
+function tierNote(){const n=gamesIn(tier).length,sel=selGames().length<GAMES.length;if(tier==="All"&&!sel)return "";
+  const what=(sel?"selected ":"")+(tier==="All"?"":`${tier.toLowerCase()} `);
+  return `<p class="note">Showing ${n} ${what}game${n===1?"":"s"}${tier==="All"?"":` (opponents ${TIER_NOTE[tier]})`}.${sel?' <button class="link" data-q="all">Show all games</button>':""}</p>`}
+
+function vTeam(){
+  const gs=gamesIn(tier),t=teamLine(gs),P=Object.values(compute(gs)).map(row);
+  const n=gs.length||1;
+  let h=tierNote()+`<h2>Team</h2><div class="grid">
+  <div class="box"><b>${rec(gs)}</b><span>Record (W–L–OTL)</span></div>
+  <div class="box"><b>${t.gf}–${t.ga}</b><span>Goals for–against</span></div>
+  <div class="box"><b>${f2(t.gf/n)} / ${f2(t.ga/n)}</b><span>GF / GA per game</span></div>
+  <div class="box"><b>${t.ppf}–${t.ppa}</b><span>Power-play goals for–against</span></div>
+  <div class="box"><b>${t.esf}–${t.esa}</b><span>Even-strength goals for–against</span></div>
+  <div class="box"><b>${t.shf}</b><span>Shorthanded goals for</span></div></div>`;
+  h+=`<h2>By opponent strength</h2><div class="tw"><table><thead><tr><th class="l">Opponents</th><th>GP</th><th>Record</th><th>GF</th><th>GA</th><th>GF/GP</th><th>GA/GP</th></tr></thead><tbody>`;
+  ["Tougher","Even","Weaker"].forEach(k=>{const g2=gamesIn(k),l=teamLine(g2),m=g2.length||1;h+=`<tr><td class="l"><span class="chip ${k}">${k}</span></td><td>${g2.length}</td><td>${rec(g2)}</td><td>${l.gf}</td><td>${l.ga}</td><td>${f2(l.gf/m)}</td><td>${f2(l.ga/m)}</td></tr>`});
+  h+=`</tbody></table></div>`;
+  const top=(k,label,fmt)=>{const s=[...P].sort((a,b)=>b[k]-a[k]||b.p-a.p).slice(0,5);return `<div class="box"><h3 style="margin-top:0">${label}</h3><ol>${s.map(p=>`<li><a class="link" href="#player/${p.n}">#${p.n} ${esc(p.name)}</a><b>${fmt?fmt(p[k]):p[k]}</b></li>`).join("")}</ol></div>`};
+  h+=`<h2>Leaders</h2><div class="lead">${top("p","Points")}${top("g","Goals")}${top("a","Assists")}${top("pm","Plus/minus",v=>(v>0?"+":"")+v)}</div>`;
+  h+=gameTable(gs,"Games");
+  return h;
+}
+function gameTable(gs,title){
+  let h=`<h2>${title}</h2><div class="tw"><table><thead><tr><th class="l">Game</th><th class="l">Date</th><th class="l">Opponent</th><th>Rating</th><th class="l">Strength</th><th>Result</th><th>Score</th></tr></thead><tbody>`;
+  gs.forEach(g=>{h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n}</td><td class="l">${fmtDate(g.date)}</td><td class="l">${esc(g.opp)}</td><td>${f2(ratings[g.opp])}</td><td class="l"><span class="chip ${tierG(g)}">${tierG(g)}</span></td><td><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span></td><td>${g.gf}–${g.ga}</td></tr>`});
+  return h+`</tbody></table></div>`;
+}
+function vPlayers(){
+  const gs=gamesIn(tier);let P=Object.values(compute(gs)).map(row);
+  if(posF!=="All")P=P.filter(p=>p.pos.includes(posF));
+  P.sort((a,b)=>{const d=(a[sortK]-b[sortK])*(sortAsc?1:-1);return d||(b.p-a.p)||(b.g-a.g)||a.n-b.n});
+  let h=tierNote()+`<h2>Skaters</h2><p class="note">Tap a column to sort, tap again to flip. Tap a player for his profile, or tap any underlined number to see the goals behind it.</p><div class="tw"><table><thead><tr><th class="l stick">#</th><th class="l">Player</th><th class="l">Pos</th>${COLS.map(([k,l])=>`<th class="s ${k===sortK?"on":""} ${k===sortK&&sortAsc?"asc":""}" data-sort="${k}" tabindex="0">${l}</th>`).join("")}</tr></thead><tbody>`;
+  P.forEach(p=>{h+=`<tr class="click" data-href="#player/${p.n}"><td class="l num stick">${p.n}</td><td class="l">${esc(p.name)}</td><td class="l">${p.pos}</td>`+COLS.map(([k])=>{const v=p[k],txt=k==="pgp"?f2(v):k==="pm"?pm(v):v;return `<td${k==="p"?' class="pts"':""}>${DRILL[k]&&(v||k==="pm"&&(p.pl||p.mi))?`<a class="dl" href="#drill/${p.n}/${k}">${txt}</a>`:txt}</td>`}).join("")+`</tr>`});
+  h+=`</tbody></table></div><p class="note">PPP power-play points. SHP shorthanded points. GWG game-winning goals. A1/A2 primary/secondary assists. Plus and Minus are the number of times he was on the ice for a goal for and against. Plus/minus counts even-strength and shorthanded goals only, including 3-on-3 overtime; power-play goals don't count either way.</p>`;
+  return h;
+}
+function vPlayer(n){
+  const R=ROSTER.find(r=>r[0]===n);if(!R)return `<p>No player #${n}.</p>`;
+  const PG=gamesIn(tier),all=row(compute(PG)[n]);
+  let h=`<a class="link back" href="#players">‹ All players</a><div class="phead"><div class="jersey">${n}</div><div><h2>${esc(R[1])}</h2><p>${R[2]==="D"?"Defense":R[2]==="F"?"Forward":"Forward / Defense"}</p></div></div>`+tierNote();
+  const bx=(k,val,lab)=>`<a class="box dbox" href="#drill/${n}/${k}"><b>${val}</b><span>${lab}</span></a>`;
+  h+=`<div class="grid"><div class="box"><b>${all.gp}</b><span>Games</span></div>${bx("g",all.g,"Goals")}${bx("a",all.a,`Assists (${all.a1} primary)`)}${bx("p",all.p,`Points, ${f2(all.pgp)} per game`)}${bx("pm",pm(all.pm),"Plus/minus")}${bx("pl",all.pl,"Plus: on ice for a goal for")}${bx("mi",all.mi,"Minus: on ice for a goal against")}${bx("ppp",all.ppp,"Power-play points")}</div><p class="note">Tap any box to see the goals behind it.</p>`;
+  h+=`<h2>By opponent strength</h2><div class="tw"><table><thead><tr><th class="l">Opponents</th><th>GP</th><th>G</th><th>A</th><th>P</th><th>P/GP</th><th>+/-</th><th>PPP</th></tr></thead><tbody>`;
+  ["Tougher","Even","Weaker"].forEach(k=>{const p=row(compute(gamesIn(k))[n]);h+=`<tr><td class="l"><span class="chip ${k}">${k}</span></td><td>${p.gp}</td><td>${p.g}</td><td>${p.a}</td><td class="pts">${p.p}</td><td>${f2(p.pgp)}</td><td>${pm(p.pm)}</td><td>${p.ppp}</td></tr>`});
+  h+=`</tbody></table></div>`;
+  h+=`<h2>Game log</h2><div class="tw"><table><thead><tr><th class="l">Game</th><th class="l">Opponent</th><th>Rating</th><th>Result</th><th>G</th><th>A</th><th>P</th><th>PPP</th><th>+/-</th></tr></thead><tbody>`;
+  const logs=Object.fromEntries(all.log.map(l=>[l.n,l]));
+  PG.forEach(g=>{const l=logs[g.n];h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n} <span class="str">${fmtDate(g.date)}</span></td><td class="l">${esc(g.opp)} <span class="chip ${tierG(g)}">${tierG(g)}</span></td><td>${f2(ratings[g.opp])}</td><td><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</td>`+(l?`<td>${l.g}</td><td>${l.a}</td><td class="pts">${l.g+l.a}</td><td>${l.pp}</td><td>${pm(l.pm)}</td>`:`<td colspan="5" class="l str">Did not play</td>`)+`</tr>`});
+  h+=`</tbody></table></div>`;
+  // goal involvement
+  let inv=[];PG.forEach(g=>{let m=0,o=0;g.ev.forEach(e=>{e[0]==="M"?m++:o++;const [s,st,G,A1,A2,ice]=e;let role=[];if(G===n)role.push("Goal");if(A1===n)role.push("Primary assist");if(A2===n)role.push("Secondary assist");if(ice&&ice.includes(n)&&st!=="PP")role.push(s==="M"?"On ice +":"On ice −");if(role.length)inv.push({g,s,st,sc:`${m}–${o}`,role:role.join(", ")})})});
+  h+=`<h2>Every goal he was part of</h2><div class="tw">${inv.map(x=>`<div class="evt ${x.s}"><span class="sc">${x.sc}</span><span>${x.s==="M"?"Mission":esc(x.g.opp)} <span class="str">${x.st==="OT"?"3-on-3 OT":x.st}</span></span><span class="str">Game ${x.g.n}</span><small>${x.role}</small></div>`).join("")}</div>`;
+  return h;
+}
+const DRILL={g:"Goals",a:"Assists",a1:"Primary assists",a2:"Secondary assists",p:"Points",pm:"Plus/minus goals",pl:"Plus: on ice for a goal for",mi:"Minus: on ice for a goal against",ppp:"Power-play points",shp:"Shorthanded points",gwg:"Game-winning goals"};
+function drillEvents(n,k,gs){const out=[];gs.forEach(g=>{let m=0,o=0;g.ev.forEach(e=>{const [s,st,G,A1,A2,ice,nt]=e;s==="M"?m++:o++;
+  const M=s==="M",pt=M&&(G===n||A1===n||A2===n),on=ice&&ice.includes(n)&&st!=="PP";
+  const hit={g:M&&G===n,a:M&&(A1===n||A2===n),a1:M&&A1===n,a2:M&&A2===n,p:pt,pl:M&&on,mi:!M&&on,pm:on,ppp:pt&&st==="PP",shp:pt&&st==="SH",gwg:M&&G===n&&g.res==="W"&&m===g.ga+1}[k];
+  if(hit)out.push({g,e,sc:`${m}–${o}`})})});return out}
+function vDrill(n,k){
+  const R=ROSTER.find(r=>r[0]===n);if(!R||!DRILL[k])return `<p>Nothing to show.</p>`;
+  const list=drillEvents(n,k,gamesIn(tier));
+  let h=`<a class="link back" href="#player/${n}">‹ #${n} ${esc(R[1])}</a><h2 style="font-size:26px">#${n} ${esc(R[1])}: ${DRILL[k]} (${k==="pm"?pm(list.filter(x=>x.e[0]==="M").length-list.filter(x=>x.e[0]==="O").length):list.length})</h2>`+tierNote();
+  if(!list.length)return h+`<p class="note">None in the games selected.</p>`;
+  h+=`<div class="tw">`;
+  list.forEach(({g,e,sc})=>{const [s,st,G,A1,A2,ice,nt]=e;const M=s==="M";
+    const who=M?`#${G} ${esc(NAME[G])}`:`${esc(g.opp)} goal`;
+    const ast=M?(A1?`Assists: #${A1} ${esc(NAME[A1])}${A2?`, #${A2} ${esc(NAME[A2])}`:""}`:"Unassisted"):"";
+    const icel=ice?`On ice: ${ice.map(x=>x===n?`<b>#${x}</b>`:"#"+x).join(", ")}`:"Power play, no plus/minus";
+    const tag=k==="pm"?(M?' <span class="pos">+1</span>':' <span class="neg">−1</span>'):"";
+    h+=`<a class="evt ${s} dl2" href="#game/${g.n}"><span class="sc">${sc}</span><span>${who}${tag} <span class="str">${st==="OT"?"3-on-3 OT":st}</span></span><span></span><small>Game ${g.n}, ${fmtDate(g.date)} vs ${esc(g.opp)}. ${[nt,ast,icel].filter(Boolean).join(". ")}</small></a>`});
+  return h+`</div><p class="note">Score shown is Mission–opponent right after the goal. Tap a goal to open that game.</p>`;
+}
+function vGames(){return tierNote()+gameTable(gamesIn(tier),"Games")+`<p class="note">Tap a game for the scoring summary and each player's line.</p>`}
+function vGame(n){
+  const g=GAMES.find(x=>x.n===n);if(!g)return `<p>No game ${n}.</p>`;
+  const P=compute([g]);
+  let h=`<a class="link back" href="#games">‹ All games</a><h2 style="font-size:28px">Game ${g.n}: ${g.res==="W"?(g.ot?"OT win":"Win"):g.res==="L"?"Loss":g.so?"Shootout loss":"OT loss"} ${g.gf}–${g.ga} vs. ${esc(g.opp)}</h2><p class="note">${fmtDate(g.date)}. Opponent rating ${f2(ratings[g.opp])} <span class="chip ${tierG(g)}">${tierG(g)}</span></p>`;
+  h+=`<h3>Scoring</h3><div class="tw">`;let m=0,o=0;
+  g.ev.forEach(([s,st,G,A1,A2,ice,nt])=>{s==="M"?m++:o++;const who=s==="M"?`#${G} ${esc(NAME[G])}`:esc(g.opp);const ast=s==="M"?(A1?`Assists: #${A1} ${esc(NAME[A1])}${A2?`, #${A2} ${esc(NAME[A2])}`:""}`:"Unassisted"):"";const icel=ice?`On ice: ${ice.map(x=>"#"+x).join(", ")}`:"On-ice lineup not recorded";
+    h+=`<div class="evt ${s}"><span class="sc">${m}–${o}</span><span>${who}</span><span class="str">${st==="OT"?"3-on-3 OT":st}</span><small>${[nt,ast,icel].filter(Boolean).join(". ")}</small></div>`});
+  if(g.so)h+=`<div class="evt O"><span class="sc">${g.gf}–${g.ga}</span><span>${esc(g.opp)} wins shootout</span><span class="str">SO</span><small>The shootout goal counts in the final score only, not in player stats or plus/minus.</small></div>`;
+  h+=`</div><h3>Player lines</h3><div class="tw"><table><thead><tr><th class="l stick">#</th><th class="l">Player</th><th>G</th><th>A</th><th>P</th><th>+/-</th></tr></thead><tbody>`;
+  Object.values(P).map(row).filter(p=>p.gp).sort((a,b)=>b.p-a.p||b.g-a.g||b.pm-a.pm||a.n-b.n).forEach(p=>{h+=`<tr class="click" data-href="#player/${p.n}"><td class="l num stick">${p.n}</td><td class="l">${esc(p.name)}</td><td>${p.g}</td><td>${p.a}</td><td class="pts">${p.p}</td><td>${pm(p.pm)}</td></tr>`});
+  if(g.dnp)h+=`<tr><td class="l" colspan="6"><span class="str">Did not play: ${g.dnp.map(x=>"#"+x+" "+NAME[x]).join(", ")}</span></td></tr>`;
+  return h+`</tbody></table></div>`;
+}
+function vOpp(){
+  const opps=[...new Set(GAMES.map(g=>g.opp))].sort((a,b)=>ratings[b]-ratings[a]);
+  let h=`<h2>Opponents</h2><p class="note">Ratings come from the live 2012 Bantam Major ratings as of Oct 24 (anchored to MHR's ratings through Oct 22). Tiers are set against Mission's own rating: tougher is at or above Mission, even is within 2 points below, weaker is more than 2 below. Edit any number to update the tiers everywhere; edits save in this browser.</p>`;
+  h+=`<div class="tw"><table><thead><tr><th class="l">Team</th><th>Rating</th><th class="l">Strength</th><th class="l">Results</th></tr></thead><tbody>`;
+  h+=`<tr class="me"><td class="l"><b>Chicago Mission</b></td><td><input class="rt" type="number" step="0.01" data-m="1" value="${mRating}" aria-label="Chicago Mission rating"></td><td class="l str">Baseline</td><td class="l">${rec(GAMES)}</td></tr>`;
+  opps.forEach(o=>{const gs=GAMES.filter(g=>g.opp===o);h+=`<tr><td class="l">${esc(o)}</td><td><input class="rt" type="number" step="0.01" data-o="${esc(o)}" value="${ratings[o]}" aria-label="${esc(o)} rating"></td><td class="l"><span class="chip ${tierOf(ratings[o],mRating)}">${tierOf(ratings[o],mRating)}</span></td><td class="l">${gs.map(g=>`<a class="link" href="#game/${g.n}"><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</a>`).join(", ")}</td></tr>`});
+  h+=`</tbody></table></div><p style="margin-top:12px"><button class="plain" id="resetR">Reset to Oct 24 ratings</button></p>`;
+  return h;
+}
+function render(){
+  const hsh=location.hash.slice(1)||"team";const [v,arg]=hsh.split("/");
+  const all=teamLine(GAMES);
+  document.getElementById("score").innerHTML=`<div><b>${rec(GAMES)}</b><span>Record</span></div><div><b>${all.gf}</b><span>GF</span></div><div><b>${all.ga}</b><span>GA</span></div><div><b>${GAMES.length}</b><span>GP</span></div>`;
+  const navV=v==="player"||v==="drill"?"players":v==="game"?"games":v;
+  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===navV));
+  setBar(v==="game"||v==="opponents"?"game":v);
+  const app=document.getElementById("app");
+  app.innerHTML=v==="drill"?vDrill(+arg,hsh.split("/")[2]):v==="players"?vPlayers():v==="player"?vPlayer(+arg):v==="games"?vGames():v==="game"?vGame(+arg):v==="opponents"?vOpp():vTeam();
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-tier]");if(t){tier=t.dataset.tier;render();return}
+  if(e.target.closest("#pickBtn")){pickOpen=!pickOpen;render();return}
+  const q=e.target.closest("[data-q]");if(q){const k=q.dataset.q,ns=GAMES.map(g=>g.n);
+    if(k==="close")pickOpen=false;
+    else if(k==="all")excl=new Set();
+    else if(k==="none")excl=new Set(ns);
+    else if(k==="l5"||k==="l10"){const keep=new Set(ns.slice(-(k==="l5"?5:10)));excl=new Set(ns.filter(x=>!keep.has(x)))}
+    else{excl=new Set(GAMES.filter(g=>tierG(g)!==k).map(g=>g.n));tier="All"}
+    saveExcl();render();return}
+  const p=e.target.closest("[data-pos]");if(p){posF=p.dataset.pos;render();return}
+  const s=e.target.closest("[data-sort]");if(s){const k=s.dataset.sort;if(k===sortK)sortAsc=!sortAsc;else{sortK=k;sortAsc=false}render();return}
+  if(e.target.id==="resetR"){ratings=Object.assign({},OPP);mRating=MISSION_RATING;save("mission.ratings",{});save("mission.mrating",MISSION_RATING);render();return}
+  const r=e.target.closest("tr[data-href]");if(r&&!e.target.closest("a")){location.hash=r.dataset.href}
+});
+document.addEventListener("keydown",e=>{const s=e.target.closest&&e.target.closest("[data-sort]");if(s&&(e.key==="Enter"||e.key===" ")){e.preventDefault();s.click()}});
+document.addEventListener("change",e=>{const c=e.target;if(c.dataset&&c.dataset.g){const n=+c.dataset.g;c.checked?excl.delete(n):excl.add(n);saveExcl();render();return}
+  const i=e.target;if(!i.classList.contains("rt"))return;const v=parseFloat(i.value);if(isNaN(v))return;
+  if(i.dataset.m){mRating=v;save("mission.mrating",v)}else{ratings[i.dataset.o]=v;const d={};for(const k in ratings)if(ratings[k]!==OPP[k])d[k]=ratings[k];save("mission.ratings",d)}render()});
+window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>
+
+</body></html>
