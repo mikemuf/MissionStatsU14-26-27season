@@ -134,8 +134,8 @@ a.dl2:hover{background:var(--hl)}
 </div>
 <script>
 const ROSTER=[[4,"Clayton Evert","F"],[7,"Sean Sullivan","F"],[9,"Grant Tucker","D"],[10,"Chase Hutter","F"],[14,"Sam Douglas","F/D"],[16,"Sebastian Slavik","F"],[19,"Simon Sorensen","F"],[22,"Matthew Cudio","F"],[23,"John Bryant","D"],[42,"Allan Smutek","D"],[61,"Anthony Bakiej","D"],[68,"Sasha Gresl","F"],[72,"Brady Chobar","F"],[77,"Chase Mitchell","F/D"],[86,"AJ Eggers","F"],[89,"Cash Cieslak","F"],[92,"Michael Mufarreh","D"],[96,"Kaleb Johnson","F"]];
-const MISSION_RATING=96.77;
-const OPP={"OHA Colorado":91.96,"LA Jr. Kings":95.49,"St. Louis Blues":94.01,"Nashville Jr. Predators":96.63,"Shattuck-St. Mary's":99.56,"Chicago Fury":91.46,"Team Illinois":97.08,"Chicago Phantoms":87.06,"Chicago Reapers":95.31,"Windy City Storm":92.95,"Mount St. Charles":96.15,"NJ Rockets":95.40,"Bishop Kearney Selects":96.38,"Little Caesars":97.03,"Woodbridge Wolfpack":97.12,"Mid-Fairfield":99.99,"Pittsburgh Penguins Elite":96.36};
+const MISSION_RATING=97.03;
+const OPP={"OHA Colorado":93.03,"LA Jr. Kings":95.78,"St. Louis Blues":93.91,"Nashville Jr. Predators":96.50,"Shattuck-St. Mary's":99.64,"Chicago Fury":92.93,"Team Illinois":97.07,"Chicago Phantoms":87.84,"Chicago Reapers":95.81,"Windy City Storm":93.51,"Mount St. Charles":96.55,"NJ Rockets":96.00,"Bishop Kearney Selects":96.27,"Little Caesars":97.51,"Woodbridge Wolfpack":97.09,"Mid-Fairfield":99.99,"Pittsburgh Penguins Elite":96.26};
 // events: [side, str, G, A1, A2, ICE]
 const GAMES=[
 {n:1,date:"2026-09-04",opp:"OHA Colorado",gf:7,ga:2,res:"W",ev:[
@@ -181,7 +181,9 @@ const GAMES=[
 {n:21,date:"2026-10-23",opp:"Shattuck-St. Mary's",gf:8,ga:3,res:"W",dnp:[9,68,7],ev:[
 ["M","ES",89,14,16,[89,14,16,92,61]],["O","ES",0,0,0,[92,42,22,86,19]],["M","ES",77,22,19,[77,22,19,23,10]],["M","ES",4,86,96,[4,86,96,92,77]],["M","ES",4,10,42,[4,10,42,77,19]],["M","ES",72,96,86,[72,96,86,42,92]],["O","PP",0,0,0,null],["O","ES",0,0,0,[14,16,77,89,92]],["M","ES",10,42,0,[10,42,92,19,4]],["M","ES",92,0,0,[92,22,86,96,77]],["M","ES",4,0,0,[4,77,42,19,22]]]},
 {n:22,date:"2026-10-24",opp:"Shattuck-St. Mary's",gf:2,ga:7,res:"L",dnp:[9,68,7],ev:[
-["O","ES",0,0,0,[4,42,10,77,96]],["O","ES",0,0,0,[14,16,89,23,77]],["O","ES",0,0,0,[89,86,16,61,42]],["M","ES",22,89,16,[22,89,16,42,77]],["O","ES",0,0,0,[22,89,14,23,42]],["M","ES",89,42,0,[89,42,10,23,22]],["O","ES",0,0,0,[22,89,77,86,61]],["O","ES",0,0,0,[89,22,92,23,10]],["O","ES",0,0,0,[23,72,77,96,4]]]}
+["O","ES",0,0,0,[4,42,10,77,96]],["O","ES",0,0,0,[14,16,89,23,77]],["O","ES",0,0,0,[89,86,16,61,42]],["M","ES",22,89,16,[22,89,16,42,77]],["O","ES",0,0,0,[22,89,14,23,42]],["M","ES",89,42,0,[89,42,10,23,22]],["O","ES",0,0,0,[22,89,77,86,61]],["O","ES",0,0,0,[89,22,92,23,10]],["O","ES",0,0,0,[23,72,77,96,4]]]},
+{n:23,date:"2026-11-14",opp:"Chicago Reapers",gf:4,ga:3,res:"W",so:true,ev:[
+["O","ES",0,0,0,[72,89,92,10,61]],["O","ES",0,0,0,[22,14,19,42,9]],["M","ES",89,16,10,[89,16,10,23,77]],["M","ES",89,22,0,[89,22,10,77,23]],["M","ES",16,4,0,[16,4,92,61,86]],["O","ES",0,0,0,[92,22,61,16,89]]]}
 ];
 function tierOf(r,mr){const d=r-mr;return d>=0?"Tougher":d>=-2?"Even":"Weaker"}
 function compute(games){
@@ -236,7 +238,7 @@ function setBar(v){
 }
 function pickHTML(){
   let h=`<div class="qk"><button data-q="all">All games</button><button data-q="none">Clear</button><button data-q="l5">Last 5</button><button data-q="l10">Last 10</button><button data-q="Tougher">Tougher opponents</button><button data-q="Even">Even</button><button data-q="Weaker">Weaker</button></div><ul>`;
-  [...GAMES].reverse().forEach(g=>{h+=`<li><label><input type="checkbox" data-g="${g.n}" ${excl.has(g.n)?"":"checked"}><span class="gd">${g.n}. ${fmtDate(g.date)}</span><span class="op">${esc(g.opp)}</span><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res} ${g.gf}–${g.ga}</span></label></li>`});
+  [...GAMES].reverse().forEach(g=>{h+=`<li><label><input type="checkbox" data-g="${g.n}" ${excl.has(g.n)?"":"checked"}><span class="gd">${g.n}. ${fmtDate(g.date)}</span><span class="op">${esc(g.opp)}</span><span class="res ${g.res}">${g.so?(g.res==="W"?"SOW":"SOL"):g.ot?"OTW":g.res} ${g.gf}–${g.ga}</span></label></li>`});
   return h+`</ul><p class="done"><button class="plain" data-q="close">Done</button></p>`;
 }
 function tierNote(){const n=gamesIn(tier).length,sel=selGames().length<GAMES.length;if(tier==="All"&&!sel)return "";
@@ -263,7 +265,7 @@ function vTeam(){
 }
 function gameTable(gs,title){
   let h=`<h2>${title}</h2><div class="tw"><table><thead><tr><th class="l">Game</th><th class="l">Date</th><th class="l">Opponent</th><th>Rating</th><th class="l">Strength</th><th>Result</th><th>Score</th></tr></thead><tbody>`;
-  gs.forEach(g=>{h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n}</td><td class="l">${fmtDate(g.date)}</td><td class="l">${esc(g.opp)}</td><td>${f2(ratings[g.opp])}</td><td class="l"><span class="chip ${tierG(g)}">${tierG(g)}</span></td><td><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span></td><td>${g.gf}–${g.ga}</td></tr>`});
+  gs.forEach(g=>{h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n}</td><td class="l">${fmtDate(g.date)}</td><td class="l">${esc(g.opp)}</td><td>${f2(ratings[g.opp])}</td><td class="l"><span class="chip ${tierG(g)}">${tierG(g)}</span></td><td><span class="res ${g.res}">${g.so?(g.res==="W"?"SOW":"SOL"):g.ot?"OTW":g.res}</span></td><td>${g.gf}–${g.ga}</td></tr>`});
   return h+`</tbody></table></div>`;
 }
 function vPlayers(){
@@ -286,7 +288,7 @@ function vPlayer(n){
   h+=`</tbody></table></div>`;
   h+=`<h2>Game log</h2><div class="tw"><table><thead><tr><th class="l">Game</th><th class="l">Opponent</th><th>Rating</th><th>Result</th><th>G</th><th>A</th><th>P</th><th>PPP</th><th>+/-</th></tr></thead><tbody>`;
   const logs=Object.fromEntries(all.log.map(l=>[l.n,l]));
-  PG.forEach(g=>{const l=logs[g.n];h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n} <span class="str">${fmtDate(g.date)}</span></td><td class="l">${esc(g.opp)} <span class="chip ${tierG(g)}">${tierG(g)}</span></td><td>${f2(ratings[g.opp])}</td><td><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</td>`+(l?`<td>${l.g}</td><td>${l.a}</td><td class="pts">${l.g+l.a}</td><td>${l.pp}</td><td>${pm(l.pm)}</td>`:`<td colspan="5" class="l str">Did not play</td>`)+`</tr>`});
+  PG.forEach(g=>{const l=logs[g.n];h+=`<tr class="click" data-href="#game/${g.n}"><td class="l">${g.n} <span class="str">${fmtDate(g.date)}</span></td><td class="l">${esc(g.opp)} <span class="chip ${tierG(g)}">${tierG(g)}</span></td><td>${f2(ratings[g.opp])}</td><td><span class="res ${g.res}">${g.so?(g.res==="W"?"SOW":"SOL"):g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</td>`+(l?`<td>${l.g}</td><td>${l.a}</td><td class="pts">${l.g+l.a}</td><td>${l.pp}</td><td>${pm(l.pm)}</td>`:`<td colspan="5" class="l str">Did not play</td>`)+`</tr>`});
   h+=`</tbody></table></div>`;
   // goal involvement
   let inv=[];PG.forEach(g=>{let m=0,o=0;g.ev.forEach(e=>{e[0]==="M"?m++:o++;const [s,st,G,A1,A2,ice]=e;let role=[];if(G===n)role.push("Goal");if(A1===n)role.push("Primary assist");if(A2===n)role.push("Secondary assist");if(ice&&ice.includes(n)&&st!=="PP")role.push(s==="M"?"On ice +":"On ice −");if(role.length)inv.push({g,s,st,sc:`${m}–${o}`,role:role.join(", ")})})});
@@ -316,11 +318,11 @@ function vGames(){return tierNote()+gameTable(gamesIn(tier),"Games")+`<p class="
 function vGame(n){
   const g=GAMES.find(x=>x.n===n);if(!g)return `<p>No game ${n}.</p>`;
   const P=compute([g]);
-  let h=`<a class="link back" href="#games">‹ All games</a><h2 style="font-size:28px">Game ${g.n}: ${g.res==="W"?(g.ot?"OT win":"Win"):g.res==="L"?"Loss":g.so?"Shootout loss":"OT loss"} ${g.gf}–${g.ga} vs. ${esc(g.opp)}</h2><p class="note">${fmtDate(g.date)}. Opponent rating ${f2(ratings[g.opp])} <span class="chip ${tierG(g)}">${tierG(g)}</span></p>`;
+  let h=`<a class="link back" href="#games">‹ All games</a><h2 style="font-size:28px">Game ${g.n}: ${g.res==="W"?(g.so?"Shootout win":g.ot?"OT win":"Win"):g.res==="L"?"Loss":g.so?"Shootout loss":"OT loss"} ${g.gf}–${g.ga} vs. ${esc(g.opp)}</h2><p class="note">${fmtDate(g.date)}. Opponent rating ${f2(ratings[g.opp])} <span class="chip ${tierG(g)}">${tierG(g)}</span></p>`;
   h+=`<h3>Scoring</h3><div class="tw">`;let m=0,o=0;
   g.ev.forEach(([s,st,G,A1,A2,ice,nt])=>{s==="M"?m++:o++;const who=s==="M"?`#${G} ${esc(NAME[G])}`:esc(g.opp);const ast=s==="M"?(A1?`Assists: #${A1} ${esc(NAME[A1])}${A2?`, #${A2} ${esc(NAME[A2])}`:""}`:"Unassisted"):"";const icel=ice?`On ice: ${ice.map(x=>"#"+x).join(", ")}`:"On-ice lineup not recorded";
     h+=`<div class="evt ${s}"><span class="sc">${m}–${o}</span><span>${who}</span><span class="str">${st==="OT"?"3-on-3 OT":st}</span><small>${[nt,ast,icel].filter(Boolean).join(". ")}</small></div>`});
-  if(g.so)h+=`<div class="evt O"><span class="sc">${g.gf}–${g.ga}</span><span>${esc(g.opp)} wins shootout</span><span class="str">SO</span><small>The shootout goal counts in the final score only, not in player stats or plus/minus.</small></div>`;
+  if(g.so)h+=`<div class="evt ${g.res==="W"?"M":"O"}"><span class="sc">${g.gf}–${g.ga}</span><span>${g.res==="W"?"Mission":esc(g.opp)} wins shootout</span><span class="str">SO</span><small>The shootout goal counts in the final score only, not in player stats or plus/minus.</small></div>`;
   h+=`</div><h3>Player lines</h3><div class="tw"><table><thead><tr><th class="l stick">#</th><th class="l">Player</th><th>G</th><th>A</th><th>P</th><th>+/-</th></tr></thead><tbody>`;
   Object.values(P).map(row).filter(p=>p.gp).sort((a,b)=>b.p-a.p||b.g-a.g||b.pm-a.pm||a.n-b.n).forEach(p=>{h+=`<tr class="click" data-href="#player/${p.n}"><td class="l num stick">${p.n}</td><td class="l">${esc(p.name)}</td><td>${p.g}</td><td>${p.a}</td><td class="pts">${p.p}</td><td>${pm(p.pm)}</td></tr>`});
   if(g.dnp)h+=`<tr><td class="l" colspan="6"><span class="str">Did not play: ${g.dnp.map(x=>"#"+x+" "+NAME[x]).join(", ")}</span></td></tr>`;
@@ -328,11 +330,11 @@ function vGame(n){
 }
 function vOpp(){
   const opps=[...new Set(GAMES.map(g=>g.opp))].sort((a,b)=>ratings[b]-ratings[a]);
-  let h=`<h2>Opponents</h2><p class="note">Ratings come from the live 2012 Bantam Major ratings as of Oct 24 (anchored to MHR's ratings through Oct 22). Tiers are set against Mission's own rating: tougher is at or above Mission, even is within 2 points below, weaker is more than 2 below. Edit any number to update the tiers everywhere; edits save in this browser.</p>`;
+  let h=`<h2>Opponents</h2><p class="note">Ratings come from the live 2012 Bantam Major ratings as of Nov 14 (from the live ratings site). Tiers are set against Mission's own rating: tougher is at or above Mission, even is within 2 points below, weaker is more than 2 below. Edit any number to update the tiers everywhere; edits save in this browser.</p>`;
   h+=`<div class="tw"><table><thead><tr><th class="l">Team</th><th>Rating</th><th class="l">Strength</th><th class="l">Results</th></tr></thead><tbody>`;
   h+=`<tr class="me"><td class="l"><b>Chicago Mission</b></td><td><input class="rt" type="number" step="0.01" data-m="1" value="${mRating}" aria-label="Chicago Mission rating"></td><td class="l str">Baseline</td><td class="l">${rec(GAMES)}</td></tr>`;
-  opps.forEach(o=>{const gs=GAMES.filter(g=>g.opp===o);h+=`<tr><td class="l">${esc(o)}</td><td><input class="rt" type="number" step="0.01" data-o="${esc(o)}" value="${ratings[o]}" aria-label="${esc(o)} rating"></td><td class="l"><span class="chip ${tierOf(ratings[o],mRating)}">${tierOf(ratings[o],mRating)}</span></td><td class="l">${gs.map(g=>`<a class="link" href="#game/${g.n}"><span class="res ${g.res}">${g.so?"SOL":g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</a>`).join(", ")}</td></tr>`});
-  h+=`</tbody></table></div><p style="margin-top:12px"><button class="plain" id="resetR">Reset to Oct 24 ratings</button></p>`;
+  opps.forEach(o=>{const gs=GAMES.filter(g=>g.opp===o);h+=`<tr><td class="l">${esc(o)}</td><td><input class="rt" type="number" step="0.01" data-o="${esc(o)}" value="${ratings[o]}" aria-label="${esc(o)} rating"></td><td class="l"><span class="chip ${tierOf(ratings[o],mRating)}">${tierOf(ratings[o],mRating)}</span></td><td class="l">${gs.map(g=>`<a class="link" href="#game/${g.n}"><span class="res ${g.res}">${g.so?(g.res==="W"?"SOW":"SOL"):g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</a>`).join(", ")}</td></tr>`});
+  h+=`</tbody></table></div><p style="margin-top:12px"><button class="plain" id="resetR">Reset to Nov 14 ratings</button></p>`;
   return h;
 }
 function render(){
