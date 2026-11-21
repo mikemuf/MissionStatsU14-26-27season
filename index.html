@@ -134,8 +134,8 @@ a.dl2:hover{background:var(--hl)}
 </div>
 <script>
 const ROSTER=[[4,"Clayton Evert","F"],[7,"Sean Sullivan","F"],[9,"Grant Tucker","D"],[10,"Chase Hutter","F"],[14,"Sam Douglas","F/D"],[16,"Sebastian Slavik","F"],[19,"Simon Sorensen","F"],[22,"Matthew Cudio","F"],[23,"John Bryant","D"],[42,"Allan Smutek","D"],[61,"Anthony Bakiej","D"],[68,"Sasha Gresl","F"],[72,"Brady Chobar","F"],[77,"Chase Mitchell","F/D"],[86,"AJ Eggers","F"],[89,"Cash Cieslak","F"],[92,"Michael Mufarreh","D"],[96,"Kaleb Johnson","F"]];
-const MISSION_RATING=96.85;
-const OPP={"OHA Colorado":93.08,"LA Jr. Kings":95.92,"St. Louis Blues":93.72,"Nashville Jr. Predators":96.30,"Shattuck-St. Mary's":99.59,"Chicago Fury":92.78,"Team Illinois":97.03,"Chicago Phantoms":87.88,"Chicago Reapers":95.52,"Windy City Storm":93.44,"Mount St. Charles":96.47,"NJ Rockets":95.99,"Bishop Kearney Selects":96.20,"Little Caesars":97.27,"Woodbridge Wolfpack":96.78,"Mid-Fairfield":99.99,"Pittsburgh Penguins Elite":95.96};
+const MISSION_RATING=97.07;
+const OPP={"OHA Colorado":93.11,"LA Jr. Kings":95.96,"St. Louis Blues":93.74,"Nashville Jr. Predators":96.31,"Shattuck-St. Mary's":99.74,"Chicago Fury":92.81,"Team Illinois":97.07,"Chicago Phantoms":87.91,"Chicago Reapers":95.60,"Windy City Storm":93.45,"Mount St. Charles":96.39,"NJ Rockets":96.00,"Bishop Kearney Selects":96.22,"Little Caesars":97.25,"Woodbridge Wolfpack":96.78,"Mid-Fairfield":99.99,"Pittsburgh Penguins Elite":95.80};
 // events: [side, str, G, A1, A2, ICE]
 const GAMES=[
 {n:1,date:"2026-09-04",opp:"OHA Colorado",gf:7,ga:2,res:"W",ev:[
@@ -186,8 +186,10 @@ const GAMES=[
 ["O","ES",0,0,0,[72,89,92,10,61]],["O","ES",0,0,0,[22,14,19,42,9]],["M","ES",89,16,10,[89,16,10,23,77]],["M","ES",89,22,0,[89,22,10,77,23]],["M","ES",16,4,0,[16,4,92,61,86]],["O","ES",0,0,0,[92,22,61,16,89]]]},
 {n:24,date:"2026-11-15",opp:"Chicago Reapers",gf:3,ga:0,res:"W",ev:[
 ["M","ES",89,92,0,[89,92,22,14,10],"9:06 1st"],["M","ES",42,9,16,[42,9,16,96,4]],["M","PP",92,89,42,null]]},
-{n:25,date:"2026-11-20",opp:"Bishop Kearney Selects",gf:3,ga:5,res:"L",ev:[
-["O","ES",0,0,0,[22,14,23,77,19]],["M","ES",68,0,0,[68,42,72,19,9]],["O","ES",0,0,0,[92,10,19,61,14]],["M","ES",89,92,14,[89,92,14,16,61]],["O","ES",0,0,0,[86,92,61,89,16]],["O","ES",0,0,0,[61,92,22,89,14]],["M","ES",86,96,22,[86,96,22,77,23]],["O","ES",0,0,0,[92,23,14,19,22,96],"Empty net, Mission goalie pulled"]]}
+{n:25,date:"2026-11-20",opp:"Bishop Kearney Selects",gf:3,ga:5,res:"L",dnp:[7],ev:[
+["O","ES",0,0,0,[22,14,23,77,19]],["M","ES",68,0,0,[68,42,72,19,9]],["O","ES",0,0,0,[92,10,19,61,14]],["M","ES",89,92,14,[89,92,14,16,61]],["O","ES",0,0,0,[86,92,61,89,16]],["O","ES",0,0,0,[61,92,22,89,14]],["M","ES",86,96,22,[86,96,22,77,23]],["O","ES",0,0,0,[92,23,14,19,22,96],"Empty net, Mission goalie pulled"]]},
+{n:26,date:"2026-11-21",opp:"Pittsburgh Penguins Elite",gf:9,ga:3,res:"W",dnp:[7],ev:[
+["M","ES",22,0,0,[22,42,61,4,96]],["M","ES",89,86,77,[89,86,77,23,4]],["O","ES",0,0,0,[72,68,42,19,61]],["M","PP",22,77,42,null],["M","ES",42,61,0,[42,61,86,4,89]],["O","PP",0,0,0,null],["O","ES",0,0,0,[92,10,96,22,9]],["M","ES",9,22,0,[9,22,86,89,92]],["M","ES",22,86,0,[22,86,89,23,77]],["M","ES",89,0,0,[89,22,10,42,61]],["M","ES",10,89,0,[10,89,92,9,22]],["M","ES",89,23,0,[89,23,68,72,77]]]}
 ];
 function tierOf(r,mr){const d=r-mr;return d>=0?"Tougher":d>=-2?"Even":"Weaker"}
 function compute(games){
@@ -334,11 +336,11 @@ function vGame(n){
 }
 function vOpp(){
   const opps=[...new Set(GAMES.map(g=>g.opp))].sort((a,b)=>ratings[b]-ratings[a]);
-  let h=`<h2>Opponents</h2><p class="note">Ratings come from the live 2012 Bantam Major ratings as of Nov 20 (from the live ratings site). Tiers are set against Mission's own rating: tougher is at or above Mission, even is within 2 points below, weaker is more than 2 below. Edit any number to update the tiers everywhere; edits save in this browser.</p>`;
+  let h=`<h2>Opponents</h2><p class="note">Ratings come from the live 2012 Bantam Major ratings as of Nov 21 (from the live ratings site). Tiers are set against Mission's own rating: tougher is at or above Mission, even is within 2 points below, weaker is more than 2 below. Edit any number to update the tiers everywhere; edits save in this browser.</p>`;
   h+=`<div class="tw"><table><thead><tr><th class="l">Team</th><th>Rating</th><th class="l">Strength</th><th class="l">Results</th></tr></thead><tbody>`;
   h+=`<tr class="me"><td class="l"><b>Chicago Mission</b></td><td><input class="rt" type="number" step="0.01" data-m="1" value="${mRating}" aria-label="Chicago Mission rating"></td><td class="l str">Baseline</td><td class="l">${rec(GAMES)}</td></tr>`;
   opps.forEach(o=>{const gs=GAMES.filter(g=>g.opp===o);h+=`<tr><td class="l">${esc(o)}</td><td><input class="rt" type="number" step="0.01" data-o="${esc(o)}" value="${ratings[o]}" aria-label="${esc(o)} rating"></td><td class="l"><span class="chip ${tierOf(ratings[o],mRating)}">${tierOf(ratings[o],mRating)}</span></td><td class="l">${gs.map(g=>`<a class="link" href="#game/${g.n}"><span class="res ${g.res}">${g.so?(g.res==="W"?"SOW":"SOL"):g.ot?"OTW":g.res}</span> ${g.gf}–${g.ga}</a>`).join(", ")}</td></tr>`});
-  h+=`</tbody></table></div><p style="margin-top:12px"><button class="plain" id="resetR">Reset to Nov 20 ratings</button></p>`;
+  h+=`</tbody></table></div><p style="margin-top:12px"><button class="plain" id="resetR">Reset to Nov 21 ratings</button></p>`;
   return h;
 }
 function render(){
